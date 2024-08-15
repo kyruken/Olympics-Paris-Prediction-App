@@ -1,5 +1,4 @@
 import './App.css'
-import countryListFile from "../src/country_list.txt"
 
 function CountryButton({countryName, selectCountryFunction}) {
   return (

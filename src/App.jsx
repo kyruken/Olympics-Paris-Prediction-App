@@ -1,27 +1,18 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import parisOlympicsLogo from './assets/2024_Summer_Olympics_logo.svg.png'
 import './App.css'
 import { Client } from "@gradio/client"
 import CountryButton from './CountryButton'
 
-import countryListFile from "../src/country_list.txt"
-
-
 function App() {
 
   async function queryModel(country, medalType) {
-    console.log(typeof(country), typeof(medalType))
-    console.log(country, medalType)
     const client = await Client.connect("kairuken/paris2024_medal_prediction");
     var result = await client.predict("/predict", { 		
         medal_type: medalType.trim(), 		
         country: country.trim(), 
     });
   
-    console.log(country, medalType)
-    console.log(result.data);
     result = result.data[0].replace('[','').replace(']', '')
     setPredictedMedal(parseInt(result));
   }
@@ -37,7 +28,6 @@ function App() {
     })
     .then(function (data) {
         setCountryList(data.split("\n"));
-        console.log('swag')
     });
   }, [])
 
