@@ -22,6 +22,7 @@ function App() {
   const [predictedMedal, setPredictedMedal] = useState(0)
  
   useEffect(() => {
+    //Change back to public\country_list.txt when running locally
     fetch("/country_list.txt")
     .then(function (res) {
         return res.text();
