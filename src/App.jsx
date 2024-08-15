@@ -22,7 +22,7 @@ function App() {
   const [predictedMedal, setPredictedMedal] = useState(0)
 
   useEffect(() => {
-    fetch("../src/country_list.txt")
+    fetch("public/country_list.txt")
     .then(function (res) {
         return res.text();
     })
