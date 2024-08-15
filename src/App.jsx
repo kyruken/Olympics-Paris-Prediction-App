@@ -20,9 +20,9 @@ function App() {
   const [countrySelected, setCountrySelected] = useState("United States of America")
   const [medalTypeSelected, setMedalTypeSelected] = useState("Gold")
   const [predictedMedal, setPredictedMedal] = useState(0)
-
+ 
   useEffect(() => {
-    fetch("public/country_list.txt")
+    fetch("/country_list.txt")
     .then(function (res) {
         return res.text();
     })
